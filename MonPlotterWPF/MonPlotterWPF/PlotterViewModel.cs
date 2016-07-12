@@ -16,18 +16,22 @@ using LineSeries = OxyPlot.Series.LineSeries;
 namespace MonPlotterWPF
 {
     // ViewModel associé au Plotter
-    class PlotterViewModel : Analysable
+    public class PlotterViewModel
     {
         public PlotModel Modèle { get; }
-        private ObservableCollection<Capteur> Capteurs;
+        private readonly ObservableCollection<Capteur> Capteurs;
         public ObservableCollection<Grandeur> Grandeurs { get; }
-        private ObservableCollection<Donnée> Données;
+        private readonly ObservableCollection<Donnée> Données;
         private const string NomFichierXML = "..\\..\\Resources\\capteurs.xtim";
         private const string NomDossierSource = "..\\..\\Resources\\netatmo\\";
 
         // Filtres
         public DateTime DebutFiltre { get; set; }
         public DateTime FinFiltre { get; set; }
+
+        // Analyses
+        public ObservableCollection<AnalyseGrandeur> Analyses { get; }
+        public AnalyseGrandeur AnalyseSélectionnée { get; set; }
 
         // Constructeur
         // Charge les fichiers XML et source
@@ -49,6 +53,14 @@ namespace MonPlotterWPF
 
             DebutFiltre = DateTime.Today;
             FinFiltre = DateTime.Today;
+
+            Analyses = new ObservableCollection<AnalyseGrandeur>()
+            {
+                new AnalyseTélé(),
+                new AnalysePersonnes(),
+                new AnalyseSons()
+            };
+            AnalyseSélectionnée = null;
 
             MiseAJourXML();
             MiseAJourDataSource();
@@ -113,6 +125,9 @@ namespace MonPlotterWPF
         // Est appelé à chaque mise à jour d'un filtre
         public void FiltreDonnées(IEnumerable<Capteur> CapteursFiltrés, bool Insertion)
         {
+            // Suppression courbe analyse
+            supprimerCourbeAnalyse();
+
             foreach (Capteur CapteurFiltré in CapteursFiltrés)
             {
                 if(Insertion)       // Insertion données
@@ -190,6 +205,9 @@ namespace MonPlotterWPF
         // Tout le reste est automatique (Le mapping a été setté dans la méthode FiltreDonnées)
         public void FiltreDates()
         {
+            // Suppression courbe analyse
+            supprimerCourbeAnalyse();
+
             foreach (var serie in Modèle.Series)
             {
                 ((LineSeries) serie).ItemsSource = Données.Where(donnée => donnée.Capteur.Description == serie.Title &&
@@ -197,6 +215,69 @@ namespace MonPlotterWPF
                                                                            donnée.Temps <= FinFiltre);
             }
             Modèle.InvalidatePlot(true);
+        }
+
+        // Active/Désactive les analyses
+        public void FiltreAnalyses()
+        {
+            // Suppression courbe analyse
+            supprimerCourbeAnalyse();
+
+            if (AnalyseSélectionnée == null) return;
+            IEnumerable<Donnée> desDonnées = new List<Donnée>();
+
+            // Verion longue
+            /*
+            foreach (var serie in Modèle.Series)
+            {
+                desDonnées = desDonnées.Concat(Données.Where(donnée =>
+                    AnalyseSélectionnée.NomGrandeurAnalysée().Contains(donnée.Capteur.Grandeur.NomGrandeur) &&
+                    donnée.Temps >= DebutFiltre &&
+                    donnée.Temps <= FinFiltre &&
+                    donnée.Capteur.Description == serie.Title))
+            }
+            */
+
+            // Version courte
+            desDonnées = Modèle.Series.Aggregate(desDonnées, (current, serie) => current.Concat(Données.Where(donnée => 
+                AnalyseSélectionnée.NomGrandeurAnalysée().Contains(donnée.Capteur.Grandeur.NomGrandeur) && 
+                donnée.Temps >= DebutFiltre && donnée.Temps <= FinFiltre && donnée.Capteur.Description == serie.Title)));
+
+            AnalyseSélectionnée = AnalyseSélectionnée.Analyser(this, desDonnées);
+        }
+
+        // Ajoute une courbe d'analyse
+        public void SetCourbeAnalyse(LineSeries lineSeries)
+        {
+           
+            lineSeries.YAxisKey = "Analyse";
+            Modèle.Series.Add(lineSeries);
+            Modèle.InvalidatePlot(true);
+        }
+
+        public void SetAxeAnalyse(string descriptionOrdonnée)
+        {
+            LinearAxis uneOrdonnée = new LinearAxis()
+            {
+                Title = descriptionOrdonnée,
+                Key = "Analyse",
+                PositionTier = 1
+            };
+            Modèle.Axes.Add(uneOrdonnée);
+        }
+
+        private void supprimerCourbeAnalyse()
+        {
+            if (Modèle.Axes.Any(axe => axe.Key == "Analyse"))
+            {
+                for (int i = Modèle.Series.Count() - 1; i >= 0; i--)
+                {
+                    if(((LineSeries)Modèle.Series[i]).YAxisKey == "Analyse")
+                        Modèle.Series.RemoveAt(i);
+                }
+                Modèle.Axes.Remove(Modèle.Axes.First(axe => axe.Key == "Analyse"));
+                Modèle.InvalidatePlot(true);
+            }
         }
     }
 }

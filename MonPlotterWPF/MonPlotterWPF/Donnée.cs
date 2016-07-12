@@ -2,7 +2,7 @@
 
 namespace MonPlotterWPF
 {
-    internal class Donnée
+    public class Donnée
     {
         public Capteur Capteur { get; }
         public DateTime Temps { get; }

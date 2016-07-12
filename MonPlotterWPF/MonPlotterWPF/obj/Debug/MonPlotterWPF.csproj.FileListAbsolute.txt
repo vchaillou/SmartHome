@@ -20,3 +20,25 @@ c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotter
 c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.exe
 c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.pdb
 C:\Users\Valentin\Documents\Visual Studio 2015\Projects\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.csprojResolveAssemblyReference.cache
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\MonPlotterWPF.exe.config
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.exe
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\MonPlotterWPF.exe
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\MonPlotterWPF.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.dll
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.Wpf.dll
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.Xps.dll
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.xml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.Wpf.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.Wpf.xml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.Xps.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Debug\OxyPlot.Xps.xml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.csprojResolveAssemblyReference.cache
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MainWindow.baml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MainWindow.g.cs
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\App.g.cs
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF_MarkupCompile.cache
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.g.resources
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.Properties.Resources.resources
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Debug\MonPlotterWPF.csproj.GenerateResource.Cache

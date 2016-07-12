@@ -8,7 +8,6 @@ namespace MonPlotterWPF
         public string AbreviationGrandeur { get; }
         private readonly string UniteGrandeur;
         public string NomGrandeur { get; }
-        public AnalyseGrandeur<Grandeur> Analyse { get; set; }
 
         public Grandeur(string unNomGrandeur, string uneUniteGrandeur, string uneAbreviationGrandeur)
         {

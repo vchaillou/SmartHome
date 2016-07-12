@@ -52,5 +52,10 @@ namespace MonPlotterWPF
         {
             ViewModel.FiltreDates();
         }
+
+        private void MiseAJourAnalyse(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.FiltreAnalyses();
+        }
     }
 }

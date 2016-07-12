@@ -20,3 +20,25 @@ c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotter
 c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.csproj.GenerateResource.Cache
 c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.exe
 c:\users\valentin\documents\visual studio 2015\Projects\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\MonPlotterWPF.exe.config
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.exe
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.csprojResolveAssemblyReference.cache
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MainWindow.baml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MainWindow.g.cs
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\App.g.cs
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF_MarkupCompile.cache
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.g.resources
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.Properties.Resources.resources
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\obj\Release\MonPlotterWPF.csproj.GenerateResource.Cache
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\MonPlotterWPF.exe
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\MonPlotterWPF.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.dll
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.Wpf.dll
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.Xps.dll
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.xml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.Wpf.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.Wpf.xml
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.Xps.pdb
+D:\ESGI\C#\SmartHome\SmartHome\MonPlotterWPF\MonPlotterWPF\bin\Release\OxyPlot.Xps.xml
