@@ -17,7 +17,7 @@ namespace MonPlotterWPF
             yield return "Bruit";
         }
 
-        public string AnalyseString(IEnumerable<Donnée> Données)
+        public string AnalyseString()
         {
             // TODO
             return "";

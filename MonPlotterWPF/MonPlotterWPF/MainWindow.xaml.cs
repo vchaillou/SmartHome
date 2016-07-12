@@ -57,5 +57,10 @@ namespace MonPlotterWPF
         {
             ViewModel.FiltreAnalyses();
         }
+
+        private void AfficherStats(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(ViewModel.AnalyseStatistiques());
+        }
     }
 }

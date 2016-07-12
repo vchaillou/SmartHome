@@ -127,6 +127,7 @@ namespace MonPlotterWPF
         {
             // Suppression courbe analyse
             supprimerCourbeAnalyse();
+            AnalyseSélectionnée = null;
 
             foreach (Capteur CapteurFiltré in CapteursFiltrés)
             {
@@ -207,6 +208,7 @@ namespace MonPlotterWPF
         {
             // Suppression courbe analyse
             supprimerCourbeAnalyse();
+            AnalyseSélectionnée = null;
 
             foreach (var serie in Modèle.Series)
             {
@@ -217,7 +219,10 @@ namespace MonPlotterWPF
             Modèle.InvalidatePlot(true);
         }
 
-        // Active/Désactive les analyses
+        // Si une analyse est sélectionnée, lance l'analyse
+        // Celle-ci peut ajouter une courbe au modèle en utilisant les méthodes "SetCourbeAnalyse" et "SetAxeAnalyse"
+        // Passe en argument de l'analyse toutes les données affichées sur le graphe auxquelles la grandeur est
+        // analysable par cette analyse
         public void FiltreAnalyses()
         {
             // Suppression courbe analyse
@@ -247,6 +252,8 @@ namespace MonPlotterWPF
         }
 
         // Ajoute une courbe d'analyse
+        // Elle se réfère automatiquement à l'axe Y d'analyse de clé "Analyse"
+        // Plusieurs courbes peuvent êter ajoutées du moment qu'elles suivent la même échelle
         public void SetCourbeAnalyse(LineSeries lineSeries)
         {
            
@@ -255,17 +262,24 @@ namespace MonPlotterWPF
             Modèle.InvalidatePlot(true);
         }
 
+        // Crée l'axe auquel se réfère les courbes d'analyse (ne doit être appelé qu'une seule fois par analyse)
+        // Utilise le mot clé "Analyse" pour cet axe
+        // L'axe est créé en parallèle des autres axes et ne devrait pas apporter de problème particulier 
+        // au filtrage des données
         public void SetAxeAnalyse(string descriptionOrdonnée)
         {
             LinearAxis uneOrdonnée = new LinearAxis()
             {
                 Title = descriptionOrdonnée,
                 Key = "Analyse",
-                PositionTier = 1
+                PositionTier = 1            // Evite le chevauchement des échelles en ordonnée
             };
             Modèle.Axes.Add(uneOrdonnée);
         }
 
+        // Méthode interne qui facilite la suppression des courbes d'analyse
+        // Elle se base sur le fait qu'elles utilisent toutes le même axe de clé "Analyse"
+        // Cet axe sera également supprimé après que les courbes ont été eeffacées
         private void supprimerCourbeAnalyse()
         {
             if (Modèle.Axes.Any(axe => axe.Key == "Analyse"))
@@ -278,6 +292,13 @@ namespace MonPlotterWPF
                 Modèle.Axes.Remove(Modèle.Axes.First(axe => axe.Key == "Analyse"));
                 Modèle.InvalidatePlot(true);
             }
+        }
+
+        // Retourne les statistiques calculées lors de la précédente analyse
+        // Si il n'y a aucune analyse en cours, on le fait savoir
+        public string AnalyseStatistiques()
+        {
+            return AnalyseSélectionnée == null ? "Aucune analyse" : AnalyseSélectionnée.AnalyseString();
         }
     }
 }

@@ -18,17 +18,18 @@ namespace MonPlotterWPF
             yield return "Bruit";
         }
 
-        public string AnalyseString(IEnumerable<Donnée> Données)
+        public string AnalyseString()
         {
-            // TODO
             return stats;
         }
 
         public AnalyseGrandeur Analyser(PlotterViewModel Model, IEnumerable<Donnée> Données)
         {
-            // TODO
-            // stats
-            const int sautAnalyse = 5;
+            const int intervalleAnalyse = 5;
+            
+            TimeSpan tempsTéléAllumée = TimeSpan.Zero;
+            int nbTéléAllumée = 0;
+
             var desDonnées = Données.Where(donnée => donnée.Capteur.Lieu == "Salle") as Donnée[] ?? 
                              Données.Where(donnée => donnée.Capteur.Lieu == "Salle").ToArray();
             if (!desDonnées.Any()) return null;
@@ -37,17 +38,31 @@ namespace MonPlotterWPF
                 Title = "Télévision allumée"
             };
 
-            // On analyse cinq valeurs d'un coup pour éviter les discordances
-            // On vérifie si sautAnalyse-1 valeurs conviennent (pour éviter les pics)
-            for (int i = 0; i+sautAnalyse < desDonnées.Count(); i++)
+            // On analyse dix valeurs d'un coup pour éviter les discordances (cinq à gauche, cinq à droite)
+            // On vérifie si intervalleAnalyse-1 valeurs conviennent (pour éviter les pics)
+            for (int i = intervalleAnalyse; i+intervalleAnalyse < desDonnées.Count(); i++)
             {
-                lineSeries.Points.Add(desDonnées.Count(donnée => donnée.Valeur > 55 && donnée.Valeur < 70 &&
-                                      donnée.Temps >= desDonnées[i].Temps &&
-                                      donnée.Temps < desDonnées[i + sautAnalyse].Temps) >= sautAnalyse - 1
-                    ? new DataPoint(DateTimeAxis.ToDouble(desDonnées[i].Temps), 1)
-                    : new DataPoint(DateTimeAxis.ToDouble(desDonnées[i].Temps), 0));
+                if (desDonnées.Count(donnée => donnée.Valeur > 55 && donnée.Valeur < 70 &&
+                                     donnée.Temps > desDonnées[i - intervalleAnalyse].Temps &&
+                                     donnée.Temps < desDonnées[i + intervalleAnalyse].Temps) >= intervalleAnalyse - 1)
+                {
+                    if (Math.Abs(lineSeries.Points[lineSeries.Points.Count-1].Y) < 0.5)
+                    {
+                        nbTéléAllumée++;
+                        // TODO => heure moyenne de l'allumage ????
+                    }
+                    else
+                    {
+                        tempsTéléAllumée += desDonnées[i].Temps - desDonnées[i - 1].Temps;
+                    }
+                    lineSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(desDonnées[i].Temps), 1));
+                }
+                else
+                {
+                    lineSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(desDonnées[i].Temps), 0));
+                }
             }
-            stats = "";
+            stats = "La télé a été allumée " + nbTéléAllumée + " fois et pendant " + tempsTéléAllumée;
             Model.SetAxeAnalyse("Télé allumée (Oui/Non)");
             Model.SetCourbeAnalyse(lineSeries);
             return this;
