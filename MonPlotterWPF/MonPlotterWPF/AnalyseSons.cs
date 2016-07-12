@@ -19,18 +19,14 @@ namespace MonPlotterWPF
 
         public string AnalyseString()
         {
-            // TODO
-            return "";
+            return "Aucune statistique pour cette analyse";
         }
 
         public AnalyseGrandeur Analyser(PlotterViewModel Model, IEnumerable<Donnée> Données)
         {
-            // TODO
-            // stats
             const int sautAnalyse = 1;
 
-            var desDonnées = Données.Where(donnée => donnée.Capteur.Lieu == "Salle") as Donnée[] ??
-                             Données.Where(donnée => donnée.Capteur.Lieu == "Salle").ToArray();
+            var desDonnées = Données as Donnée[] ?? Données.ToArray();
             if (!desDonnées.Any()) return null;
             LineSeries lineSeries = new LineSeries
             {

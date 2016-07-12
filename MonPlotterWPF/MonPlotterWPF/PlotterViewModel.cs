@@ -39,7 +39,7 @@ namespace MonPlotterWPF
         {
             Modèle = new PlotModel
             {
-                Subtitle = "Ça, c'est pas du graphe de petit pignouf"
+                Subtitle = "SmartHome"
             };
             DateTimeAxis uneAbscisse = new DateTimeAxis
             {

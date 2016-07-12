@@ -30,8 +30,7 @@ namespace MonPlotterWPF
             TimeSpan tempsTéléAllumée = TimeSpan.Zero;
             int nbTéléAllumée = 0;
 
-            var desDonnées = Données.Where(donnée => donnée.Capteur.Lieu == "Salle") as Donnée[] ?? 
-                             Données.Where(donnée => donnée.Capteur.Lieu == "Salle").ToArray();
+            var desDonnées = Données as Donnée[] ?? Données.ToArray();
             if (!desDonnées.Any()) return null;
             LineSeries lineSeries = new LineSeries
             {
