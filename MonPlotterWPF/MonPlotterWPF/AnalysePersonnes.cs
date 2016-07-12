@@ -10,7 +10,7 @@ namespace MonPlotterWPF
             yield return "Co2";
         }
 
-        public string AnalyseString(IEnumerable<Donnée> Données)
+        public string AnalyseString()
         {
             // TODO
             return "";

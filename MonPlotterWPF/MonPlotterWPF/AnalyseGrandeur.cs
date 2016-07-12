@@ -9,7 +9,7 @@ namespace MonPlotterWPF
     {
         IEnumerable<string> NomGrandeurAnalysée();
 
-        string AnalyseString(IEnumerable<Donnée> Données);
+        string AnalyseString();
 
         AnalyseGrandeur Analyser(PlotterViewModel Model, IEnumerable<Donnée> Données);
     }

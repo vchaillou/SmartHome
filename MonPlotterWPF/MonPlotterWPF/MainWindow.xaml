@@ -57,5 +57,10 @@
                  SelectionChanged="MiseAJourAnalyse"
                  ItemsSource="{Binding Analyses}"
                  SelectedItem="{Binding AnalyseSélectionnée}"/>
+        <Button Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Content="Statistiques"
+                Click="AfficherStats"/>
     </Grid>
 </Window>
