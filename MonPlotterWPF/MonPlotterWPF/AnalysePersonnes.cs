@@ -121,7 +121,7 @@ namespace MonPlotterWPF
 
                 Model.SetCourbeAnalyse(lineSeries);
             }
-            return null;
+            return this;
         }
 
         public override string ToString()
